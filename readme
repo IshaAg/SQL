@@ -1,0 +1,113 @@
+				     README
+
+--------------------------------------------------------------------------------------
+
+ISHA AGARWAL
+Roll No-14075063
+B.Tech Part -III
+Computer Science and Engineering 
+
+---------------------------------------------------------------------------------------
+
+The file "sql.cpp" contains the code to implement the relational algebra sql operations.
+It can implement both nested and simple queries for the following operations :
+
+1)SELECT
+2)PROJECT
+3)RENAME
+4)CARTESIAN PRODUCT
+5)UNION
+6)SET DIFFERENCE
+
+The user can also 
+1)CREATE (tables)
+2)INSERT (values into tables)
+
+
+---------------------------------------------------------------------------------------
+
+How to run?
+
+Open the terminal
+cd into the directory where sql.cpp is located.
+Run g++ sql.cpp from the terminal
+Next run ./a.out
+
+---------------------------------------------------------------------------------------
+
+What does the user see on running the program ?
+
+A mysql> prompt will occur, wherein the user can type the query.
+The user will also see the output for some of the queries for the already built-in database.(queries are in the main function)
+After the result of those queries user sees a prompt like 
+mysql>
+The user can exit by typing exit
+
+
+--------------------------------------------------------------------------------------
+
+What databases will be build ?
+
+The code contains the sql queries to build two tables : student and course automatically.
+For this two files of the table name will be generated in the same folder and the code 
+the queries to insert data into these tables automatically.
+
+However, the user can also create any new table and insert values also.
+
+--------------------------------------------------------------------------------------
+
+Sample queries and syntax for already built in database :
+
+X : Cartesian Product
+U : Union
+- : Set Difference
+rename : rename
+
+For creation :
+create table table_name attr_name1 attr_type1 attr_name2 attr_type2 attr_name3 attr_type3 
+
+For insertion :
+insert into table_name attr_name1_val attr_name2_val attr_name3_val 
+
+For select :
+( select condition table_name )
+In select , condition can have only one condition which can have >, < , = and ! (for not equal to)
+
+For project :
+( project attr1 attr2 table_name )
+
+For rename : (rename works with nested query)
+( rename new_name table_name )
+
+For cartesian :
+table1Xtable2
+
+For unioun :
+( query1 U query2 )
+
+For set difference :
+( query1 - query2 )
+
+# Nested Queries to be given using ( and )
+# There should be space after after ( and )
+# The condition of the select statment should not have any space
+ 
+Sample queries given below will reflect the syntax followed : 
+
+1)	create table faculty id int name string address string branch string
+2)	insert into student 1 isha bhu cse 101
+3)	( select course.credits<d.credits courseX( rename d course ) )
+4)	( project name course_id ( select student.course_id=course.course_id ( select branch=cse studentXcourse ) ) )
+5)	( project name prof course_id ( select prof=aks ( select * studentXcourse ) ) )"
+6)	( ( project course_id prof ( select * course ) ) U ( project course_id prof ( select credits=13 course ) ) )
+7)	( project course_id ( select credits=13 course ) )
+8)	( project course_id ( select name=arya student ) )
+9)	( select credits>12 course )
+10)	( project course_id prof ( select * course) ) - ( project course_id prof ( select credits=13 course ) ) )
+11)	( project name ( select * student ) )
+12)	( select course_id>105 student )
+13)	( select * course )
+14)	( select * studentXcourse )
+15)	( project id name ( select branch=cse student ) )
+16)	( project id name student )
+
